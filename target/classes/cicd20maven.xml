@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f543ad8c-27c7-468d-b858-758354d23d4b" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cicd20mavenFlow" doc:id="ae76f727-7584-4f89-9501-29d42ce61fa3" >
+		<http:listener doc:name="Listener" doc:id="b182d59f-81b2-47df-bf2a-3bf806369d9e" config-ref="HTTP_Listener_config" path="/cicd"/>
+		<set-payload value='#[{&#10;	"name":"durga",&#10;	"age":21&#10;}]' doc:name="Set Payload" doc:id="025cc67b-893f-427f-8fed-50bdef7d3d39" />
+		<logger level="INFO" doc:name="Logger" doc:id="a14f2ab2-8ed8-47b9-9e09-fed691620a8f" message="#[payload]"/>
+		<ee:transform doc:name="Transform Message" doc:id="c1b03108-1a86-4b42-abad-8ff9ec0ac5c9" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
