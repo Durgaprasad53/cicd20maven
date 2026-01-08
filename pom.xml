@@ -37,10 +37,10 @@
 						<provider>MC</provider>
 						<muleVersion>4.9.11</muleVersion>
 						<server>anypoint-exchange-v3</server>
-						<username>Durga-Jan</username>
-						<password>Durga@53</password>
-						<businessGroupId>03ceaaf7-b9d6-46e9-98bb-3aa12b4125a2</businessGroupId>
-						<environment>Sandbox</environment>
+						<username>${user}</username>
+						<password>${pw}</password>
+						<businessGroupId>${businessGroup}</businessGroupId>
+						<environment>${env}</environment>
 						<target>Cloudhub-US-East-2</target>
 						<applicationName>cicd20maven</applicationName>
 						<replicas>1</replicas>
