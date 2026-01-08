@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>03ceaaf7-b9d6-46e9-98bb-3aa12b4125a2</groupId>
-	<artifactId>cicd20maven</artifactId>
-	<version>1.0.0</version>
+	<artifactId>cicd20mavenv1</artifactId>
+	<version>1.0.1</version>
 	<packaging>mule-application</packaging>
 
 	<name>cicd20maven</name>
